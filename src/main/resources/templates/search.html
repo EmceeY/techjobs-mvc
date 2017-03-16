@@ -35,8 +35,15 @@
     </form>
 
     <hr />
-
     <!-- TODO #2 - Loop over jobs map to display all job fields -->
+    <div th:if="${jobs} and ${jobs.size()}">
+        <tr th:each="job : ${jobs}" th:class="job-listing">
+            <td>
+                <a th:href="@{/search/results(searchType=${column.key},searchTerm=${job})}" th:text="${job.value}"></a>
+            </td>
+
+        </tr>
+    </div>
 
 </div>
 
